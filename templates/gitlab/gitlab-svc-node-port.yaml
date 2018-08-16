@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gitlab-gitlab-node-port
+spec:
+  selector:
+    name: gitlab-gitlab
+  ports:
+  - name: ssh
+    port: 22
+    nodePort: 31000
+    targetPort: 22
+  - name: gitlab
+    port: 8005
+    nodePort: 30000
+    targetPort: 8005
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gitlab-self-host-registry-node-port
+spec:
+  selector:
+    name: gitlab-self-host-registry
+  ports:
+  - name: registry
+    port: 5000
+    nodePort: 32000
+    targetPort: 5000
+  type: NodePort
