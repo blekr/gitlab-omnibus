@@ -72,7 +72,7 @@ spec:
       volumes:
       - name: data
         persistentVolumeClaim:
-          claimName: {{ if .Values.postgresDedicatedStorage }} {{ template "postgresql.fullname" . }}-storage {{ else }} {{ template "fullname" . }}-storage {{ end }}
+          claimName: {{ if .Values.postgresDedicatedStorage }} {{ template "postgresql.fullname" . }}-storage3 {{ else }} {{ template "fullname" . }}-storage {{ end }}
       - name: initdb
         configMap:
           name: {{ template "postgresql.fullname" . }}-initdb
