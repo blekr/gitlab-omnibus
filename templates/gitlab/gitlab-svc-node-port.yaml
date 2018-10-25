@@ -14,8 +14,4 @@ spec:
     port: 8005
     nodePort: 30000
     targetPort: 8005
-  - name: registry
-    port: 8105
-    nodePort: 32000
-    targetPort: 8105
   type: NodePort

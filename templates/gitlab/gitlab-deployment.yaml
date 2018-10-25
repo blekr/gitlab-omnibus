@@ -130,6 +130,7 @@ spec:
             gitlab_rails['db_password'] = ENV['POSTGRES_PASSWORD']
             gitlab_rails['db_username'] = ENV['POSTGRES_USER']
             gitlab_rails['db_database'] = ENV['POSTGRES_DB']
+            gitlab_rails['lfs_enabled'] = false
 
             redis['enable'] = false
             gitlab_rails['redis_host'] = '{{ template "redis.fullname" . }}'
@@ -162,6 +163,7 @@ spec:
             gitlab_rails['registry_path'] = '/gitlab-registry'
             gitlab_rails['trusted_proxies'] = ["10.0.0.0/8","172.16.0.0/12","192.168.0.0/16"]
 
+            prometheus_monitoring['enable'] = false
             prometheus['listen_address'] = '0.0.0.0:9090'
             postgres_exporter['enable'] = true
             postgres_exporter['env'] = {
